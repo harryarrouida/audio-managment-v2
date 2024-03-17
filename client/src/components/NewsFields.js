@@ -6,6 +6,7 @@ export default function NewsFields(props) {
       <input type='text' name='commentator' placeholder='commentator' onChange={props.handleChange}></input>
       <input type='text' name='event_location' placeholder='event_location' onChange={props.handleChange}></input>
       <input type='text' name='event_date' placeholder='event_date' onChange={props.handleChange}></input>
+      <input type='text' name='sequence' placeholder='sequence' onChange={props.handleChange}></input>
     </div>
   )
 }

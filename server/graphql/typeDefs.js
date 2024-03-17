@@ -19,24 +19,24 @@ const typeDefs = gql`
     quality: String!
     language: String!
     frequency: String!
-    format: String!
     synopsis: String
-    version: String
-    sequence: String
     
     
     # based on this
     type: [String!]!
-        
+    
     # News
     commentator: String
     event_location: String
     event_date: String
-
+    sequence: String
+    
     # Emission
     presenter: [String] 
     preparation: [String] 
-  
+    format: String
+    version: String
+    
     # Causerie
     speaker: String 
     causerie_reciter: String 
@@ -82,35 +82,32 @@ const typeDefs = gql`
     language: String!
     frequency: String!
     synopsis: String
-    format: String!
-    version: String 
-    sequence: String
-    genres: [String!]!
-    
     type: [String!]!
-  
     commentator: String
     event_location: String
     event_date: String
+    sequence: String
     presenter: [String]
     preparation: [String]
+    format: String
+    version: String
     speaker: String
-    reciter: String
+    causerie_reciter: String
     causerie_location: String
     recite_type: String
     singer: [String]
     interpreter: String
     composer: String
-    writer: String
+    music_writer: String
     musical_genre: String
     lyrics: String
     orchestra: String
     distribution: String
     author: [String]
     actor: [String]
+    fiction_writer: String
     adaptation: String
   }
-
 `;
 
 module.exports = typeDefs;
