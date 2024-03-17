@@ -1,10 +1,27 @@
-import React from 'react'
+import React from 'react';
+import Input from '../customizedComponents/Input';
 
 export default function QuranFields(props) {
   return (
-    <div>
-      <input type='text' name='quran_reciter' placeholder='quran_reciter' onChange={props.handleChange}></input>
-      <input type='text' name='recite_type' placeholder='recite_type' onChange={props.handleChange}></input>
+    <div className='w-3/5 mx-auto flex flex-col'>
+      <Input
+        for='quranReciter'
+        id='quranReciter'
+        type='text'
+        name='quran_reciter'
+        placeholder='Quran Reciter'
+        text='Quran Reciter'
+        handleChange={props.handleChange}
+      />
+      <Input
+        for='reciteType'
+        id='reciteType'
+        type='text'
+        name='recite_type'
+        placeholder='Recite Type'
+        text='Recite Type'
+        handleChange={props.handleChange}
+      />
     </div>
-  )
+  );
 }

@@ -12,8 +12,8 @@ export default function Home() {
         ></img>
       </div>
       <div className="w-2/4 mx-auto flex justify-evenly">
-        <Link to={"/create-audio"} className="btn">CREATE AUDIO</Link>
-        <Link to={"/fetch-audios"}>FETCH AUDIOS</Link>
+        <Link to={"/create-audio"} className="">CREATE AUDIO</Link>
+        <Link to={"/fetch-audios"} className="">FETCH AUDIOS</Link>
       </div>
     </div>
   );
