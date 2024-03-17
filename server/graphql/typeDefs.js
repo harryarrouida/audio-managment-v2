@@ -30,7 +30,7 @@ const typeDefs = gql`
     
     
     # based on this
-    type: String!
+     type: String!
     
     # ill show one of these
     
@@ -44,7 +44,6 @@ const typeDefs = gql`
 
   type Mutation {
     createAudio(audioInput: AudioInput!): Audio!
-    createType(typeInput: TypeInput!): Type!
   }
 
   input AudioInput {

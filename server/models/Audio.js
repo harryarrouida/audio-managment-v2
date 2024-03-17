@@ -19,7 +19,7 @@ const audioSchema = new mongoose.Schema({
   event_date: { type: String },
   sequence: { type: String },
   genres: [String],
-  type: {type: String, required: true}
+  type: { type: String, required: true }
 });
 
 const Audio = mongoose.model('Audio', audioSchema);

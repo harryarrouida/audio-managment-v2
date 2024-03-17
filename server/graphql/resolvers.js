@@ -10,12 +10,13 @@ const resolvers = {
           _id: audio._id.toString(),
         }));
       } catch (error) {
-        console.log("error fetching audios", error);
+        console.log("Error fetching audios:", error);
+        throw new Error("Failed to fetch audios");
       }
     },
   },
   Mutation: {
-    createAudio: async (_, args) => {
+    createAudio: async (_, { audioInput }) => {
       const {
         title,
         date_production,
@@ -36,7 +37,7 @@ const resolvers = {
         sequence,
         genres,
         type
-      } = args.audioInput;
+      } = audioInput;
 
       const audio = new Audio({
         title,
@@ -67,7 +68,8 @@ const resolvers = {
           _id: result._id.toString(),
         };
       } catch (error) {
-        console.log("error saving audio", error);
+        console.log("Error saving audio:", error);
+        throw new Error("Failed to save audio");
       }
     }
   }
