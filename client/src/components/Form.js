@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
-import GeneralFields from "./GeneralFields";
-import MusicFields from "./MusicFields";
-import QuranFields from "./QuranFields";
-import NewsFields from "./NewsFields";
-import EmissionFields from "./EmissionFields";
-import FictionFields from "./FictionFields";
-import CauserieFields from "./CauserieFields";
+import GeneralFields from "./formComponents/GeneralFields";
+import MusicFields from "./formComponents/MusicFields";
+import QuranFields from "./formComponents/QuranFields";
+import NewsFields from "./formComponents/NewsFields";
+import EmissionFields from "./formComponents/EmissionFields";
+import FictionFields from "./formComponents/FictionFields";
+import CauserieFields from "./formComponents/CauserieFields";
 
 const CREATE_AUDIO = gql`
   mutation CreateAudio($input: AudioInput!) {
