@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import GeneralFields from "./GeneralFields";
 import MusicFields from "./MusicFields";
-import PodcastFields from "./PodcastFields";
 import QuranFields from "./QuranFields";
+import NewsFields from "./NewsFields";
+import EmissionFields from "./EmissionFields";
+import FictionFields from "./FictionFields";
+import CauserieFields from "./CauserieFields";
 
 const CREATE_AUDIO = gql`
   mutation CreateAudio($input: AudioInput!) {
@@ -13,6 +16,8 @@ const CREATE_AUDIO = gql`
     }
   }
 `;
+
+const TYPES = ["Music", "Quran", "News", "Emission", "Causerie", "Fiction"]
 
 export default function Form() {
   const [formData, setFormData] = useState({});
@@ -46,14 +51,15 @@ export default function Form() {
       <GeneralFields handleChange={handleChange} formData={formData}/>
       <select name="type" onChange={handleChange}>
       <option selected disabled>select a type</option>
-        <option value={"Music"}>Music</option>
-        <option value={"Quran"}>Quran</option>
-        <option value={"Podcast"}>Hosting</option>
+      {TYPES.map(type => <option value={type}>{type}</option>)}
       </select>
       
       {formData.type === "Music" ? <MusicFields handleChange={handleChange}/> : <></>}
-      {formData.type === "Podcast" ? <PodcastFields handleChange={handleChange}/> : <></>}
+      {formData.type === "Emission" ? <EmissionFields handleChange={handleChange}/> : <></>}
       {formData.type === "Quran" ? <QuranFields handleChange={handleChange}/> : <></>}
+      {formData.type === "News" ? <NewsFields handleChange={handleChange}/> : <></>}
+      {formData.type === "Fiction" ? <FictionFields handleChange={handleChange}/> : <></>}
+      {formData.type === "Causerie" ? <CauserieFields handleChange={handleChange}/> : <></>}
       <button type="submit">Submit</button>
     </form>
   );

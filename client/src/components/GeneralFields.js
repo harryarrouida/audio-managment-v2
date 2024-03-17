@@ -102,31 +102,10 @@ export default function GeneralFields(props) {
       />
       <input
         type="text"
-        name="event_location"
-        value={props.formData.event_location}
-        onChange={props.handleChange}
-        placeholder="event_location"
-      />
-      <input
-        type="text"
-        name="event_date"
-        value={props.formData.event_date}
-        onChange={props.handleChange}
-        placeholder="event_date"
-      />
-      <input
-        type="text"
         name="sequence"
         value={props.formData.sequence}
         onChange={props.handleChange}
         placeholder="sequence"
-      />
-      <input
-        type="text"
-        name="genres"
-        value={props.formData.genres}
-        onChange={props.handleChange}
-        placeholder="genres"
       />
     </div>
   )

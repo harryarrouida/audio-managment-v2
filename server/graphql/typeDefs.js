@@ -3,7 +3,6 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type Query {
     audios: [Audio!]!
-    types: [Type!]!
   }
 
   type Audio {
@@ -23,23 +22,47 @@ const typeDefs = gql`
     format: String!
     synopsis: String
     version: String
-    event_location: String
-    event_date: String
     sequence: String
-    genres: [String!]!
     
     
     # based on this
-     type: String!
-    
-    # ill show one of these
-    
-  }
+    type: [String!]!
+        
+    # News
+    commentator: String
+    event_location: String
+    event_date: String
 
-  type Type {
-    _id: ID!
-    name: String
-    description: String
+    # Emission
+    presenter: [String] 
+    preparation: [String] 
+  
+    # Causerie
+    speaker: String 
+    causerie_reciter: String 
+    causerie_location: String
+
+    # quran
+    quran_reciter: String 
+    recite_type: String 
+
+    # music 
+    singer: [String] 
+    interpreter: String
+    composer: String
+    music_writer: String 
+    musical_genre: String 
+    lyrics: String 
+    orchestra: String
+    distribution: String 
+    # addon_file: 
+
+    # fiction
+    author: [String] 
+    actor: [String] 
+    fiction_writer: String 
+    adaptation: String
+    
   }
 
   type Mutation {
@@ -60,19 +83,34 @@ const typeDefs = gql`
     frequency: String!
     synopsis: String
     format: String!
-    version: String
-    event_location: String
-    event_date: String
+    version: String 
     sequence: String
     genres: [String!]!
+    
+    type: [String!]!
   
-    type: String!
+    commentator: String
+    event_location: String
+    event_date: String
+    presenter: [String]
+    preparation: [String]
+    speaker: String
+    reciter: String
+    causerie_location: String
+    recite_type: String
+    singer: [String]
+    interpreter: String
+    composer: String
+    writer: String
+    musical_genre: String
+    lyrics: String
+    orchestra: String
+    distribution: String
+    author: [String]
+    actor: [String]
+    adaptation: String
   }
 
-  input TypeInput {
-    name: String!
-    description: String
-  }
 `;
 
 module.exports = typeDefs;

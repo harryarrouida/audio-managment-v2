@@ -36,9 +36,27 @@ const resolvers = {
         event_date,
         sequence,
         genres,
-        type
+        type,
+        commentator,
+        presenter,
+        preparation,
+        speaker,
+        reciter,
+        causerie_location,
+        recite_type,
+        singer,
+        interpreter,
+        composer,
+        writer,
+        musical_genre,
+        lyrics,
+        orchestra,
+        distribution,
+        author,
+        actor,
+        adaptation,
       } = audioInput;
-
+  
       const audio = new Audio({
         title,
         date_production,
@@ -58,9 +76,27 @@ const resolvers = {
         event_date,
         sequence,
         genres,
-        type
+        type,
+        commentator,
+        presenter,
+        preparation,
+        speaker,
+        reciter,
+        causerie_location,
+        recite_type,
+        singer,
+        interpreter,
+        composer,
+        writer,
+        musical_genre,
+        lyrics,
+        orchestra,
+        distribution,
+        author,
+        actor,
+        adaptation,
       });
-
+  
       try {
         const result = await audio.save();
         return {
@@ -73,6 +109,7 @@ const resolvers = {
       }
     }
   }
+  
 };
 
 module.exports = resolvers;
