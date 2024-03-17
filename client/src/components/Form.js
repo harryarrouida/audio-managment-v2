@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { gql, useMutation } from "@apollo/client";
 import GeneralFields from "./GeneralFields";
 import MusicFields from "./MusicFields";
+import PodcastFields from "./PodcastFields";
+import QuranFields from "./QuranFields";
 
 const CREATE_AUDIO = gql`
   mutation CreateAudio($input: AudioInput!) {
@@ -13,27 +15,7 @@ const CREATE_AUDIO = gql`
 `;
 
 export default function Form() {
-  const [formData, setFormData] = useState({
-    title: "",
-    date_production: "",
-    productors: [],
-    nbr_invoice: "",
-    nbr_contract: "",
-    type_support: "",
-    nbr_support: "",
-    tech_comments: "",
-    quality: "",
-    language: "",
-    frequency: "",
-    format: "",
-    synopsis: "",
-    version: "",
-    event_location: "",
-    event_date: "",
-    sequence: "",
-    genres: [],
-    type: ""
-  });
+  const [formData, setFormData] = useState({});
 
   const [createAudio] = useMutation(CREATE_AUDIO);
 
@@ -43,6 +25,7 @@ export default function Form() {
       ...prevState,
       [name]: value,
     }));
+    console.log(formData)
   };
 
   const handleSubmit = async (e) => {
@@ -62,12 +45,15 @@ export default function Form() {
     <form onSubmit={handleSubmit}>
       <GeneralFields handleChange={handleChange} formData={formData}/>
       <select name="type" onChange={handleChange}>
+      <option selected disabled>select a type</option>
         <option value={"Music"}>Music</option>
         <option value={"Quran"}>Quran</option>
-        <option value={"Music"}>Music</option>
-        <option value={"Hosting"}>Hosting</option>
+        <option value={"Podcast"}>Hosting</option>
       </select>
-      <MusicFields handleChange={handleChange}/>
+      
+      {formData.type === "Music" ? <MusicFields handleChange={handleChange}/> : <></>}
+      {formData.type === "Podcast" ? <PodcastFields handleChange={handleChange}/> : <></>}
+      {formData.type === "Quran" ? <QuranFields handleChange={handleChange}/> : <></>}
       <button type="submit">Submit</button>
     </form>
   );
