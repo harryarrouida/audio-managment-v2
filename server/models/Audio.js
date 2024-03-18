@@ -25,6 +25,7 @@ const audioSchema = new mongoose.Schema({
   speaker: String,
   causerie_reciter: String,
   causerie_location: String,
+  quran_reciter: String,
   recite_type: String,
   singer: [String],
   interpreter: String,

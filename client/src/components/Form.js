@@ -7,6 +7,8 @@ import NewsFields from "./formComponents/NewsFields";
 import EmissionFields from "./formComponents/EmissionFields";
 import FictionFields from "./formComponents/FictionFields";
 import CauserieFields from "./formComponents/CauserieFields";
+import Success from "./customizedComponents/Success";
+import Error from "./customizedComponents/Error";
 
 const CREATE_AUDIO = gql`
   mutation CreateAudio($input: AudioInput!) {
@@ -21,16 +23,31 @@ const TYPES = ["Music", "Quran", "News", "Emission", "Causerie", "Fiction"];
 
 export default function Form() {
   const [formData, setFormData] = useState({});
+  const [status, setStatus] = useState("")
+
   const [createAudio] = useMutation(CREATE_AUDIO);
+
+  const handleCSVFieldChange = (name, value) => {
+    const updatedValue = value.split(',').map(item => item.trim());
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: updatedValue,
+    }));
+    console.log(formData)
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    if (["productors", "presenter", "preparation", "singer", "author", "actor"].includes(name)) {
+      handleCSVFieldChange(name, value);
+    } else {
+      setFormData(prevState => ({
+        ...prevState,
+        [name]: value,
+      }));
+    }
+    console.log(formData)
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -40,11 +57,12 @@ export default function Form() {
         },
       });
       console.log("successful", result);
+      setStatus("success")
     } catch (error) {
       console.log("failed", error);
+      setStatus("failed")
     }
   };
-
   return (
     <form onSubmit={handleSubmit}>
       <GeneralFields handleChange={handleChange} formData={formData} />
@@ -53,54 +71,61 @@ export default function Form() {
           name="type"
           onChange={handleChange}
           id="HeadlineAct"
-          className="w-3/5 mx-auto px-3 py-3  w-1/3 mt-1.5 rounded-lg border-gray-300 text-gray-700 sm:text-sm"
+          class="w-3/5 mx-auto px-3 py-3  w-1/3 mt-1.5 rounded-lg border-gray-300 text-gray-700 sm:text-sm"
         >
           <option selected disabled>
             select a type
           </option>
           {TYPES.map((type) => (
-            <option key={type} value={type}>
-              {type}
-            </option>
+            <option value={type}>{type}</option>
           ))}
         </select>
       </div>
 
-      {formData.type && (
-        <>
-          {formData.type === "Music" && (
-            <MusicFields handleChange={handleChange} />
-          )}
-          {formData.type === "Emission" && (
-            <EmissionFields handleChange={handleChange} />
-          )}
-          {formData.type === "Quran" && (
-            <QuranFields handleChange={handleChange} />
-          )}
-          {formData.type === "News" && (
-            <NewsFields handleChange={handleChange} />
-          )}
-          {formData.type === "Fiction" && (
-            <FictionFields handleChange={handleChange} />
-          )}
-          {formData.type === "Causerie" && (
-            <CauserieFields handleChange={handleChange} />
-          )}
-        </>
+      {formData.type === "Music" ? (
+        <MusicFields handleChange={handleChange} />
+      ) : (
+        <></>
       )}
-
+      {formData.type === "Emission" ? (
+        <EmissionFields handleChange={handleChange} />
+      ) : (
+        <></>
+      )}
+      {formData.type === "Quran" ? (
+        <QuranFields handleChange={handleChange} />
+      ) : (
+        <></>
+      )}
+      {formData.type === "News" ? (
+        <NewsFields handleChange={handleChange} />
+      ) : (
+        <></>
+      )}
+      {formData.type === "Fiction" ? (
+        <FictionFields handleChange={handleChange} />
+      ) : (
+        <></>
+      )}
+      {formData.type === "Causerie" ? (
+        <CauserieFields handleChange={handleChange} />
+      ) : (
+        <></>
+      )}
       <div className="mx-auto text-center">
         <button
-          className="my-5 group relative inline-block text-sm font-medium text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+          class="my-5 group relative inline-block text-sm font-medium text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
           type="submit"
         >
-          <span className="absolute inset-0 translate-x-0 translate-y-0 bg-indigo-600 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5"></span>
+          <span class="absolute inset-0 translate-x-0 translate-y-0 bg-indigo-600 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5"></span>
 
-          <span className="relative block border border-current bg-white px-8 py-3">
+          <span class="relative block border border-current bg-white px-8 py-3">
             submit
           </span>
         </button>
       </div>
+      {status === "success" ? <Success/> : <></>}
+      {status === "failed" ? <Error/> : <></>}
     </form>
   );
 }
