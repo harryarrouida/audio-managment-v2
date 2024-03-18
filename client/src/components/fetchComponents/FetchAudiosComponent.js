@@ -52,8 +52,8 @@ export default function FetchAudiosComponent() {
   if (loading) return <div>loading...</div>;
   if (error) return <div>error: {error.message}</div>;
   return (
-    <div className="text-center">
-      <div class="w-3/5 mx-auto my-5 rounded-lg border border-gray-200">
+    <div className="text-center w-4/5 mx-auto">
+      <div class="w-full mx-auto my-5 rounded-lg border border-gray-200">
         <div class="overflow-x-auto rounded-t-lg">
           <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
             <thead class="ltr:text-left rtl:text-right">
