@@ -1,10 +1,12 @@
 import React from "react";
 import Input from "../customizedComponents/Input";
 
+const LANGS = ["English", "Arab", "French", "Spanish"]
+
 export default function GeneralFields(props) {
   return (
     <div className="flex w-full gap-2 mx-auto">
-      <div className="flex flex-col mx-auto">
+      <div className="flex flex-col mx-auto w-1/4">
         <Input
           for="title"
           name="title"
@@ -51,7 +53,7 @@ export default function GeneralFields(props) {
           handleChange={props.handleChange}
         />
       </div>
-      <div className="flex flex-col mx-auto">
+      <div className="flex flex-col mx-auto w-1/4">
         <Input
           for="type_support"
           name="type_support"
@@ -88,7 +90,7 @@ export default function GeneralFields(props) {
           value={props.formData.quality}
           handleChange={props.handleChange}
         />
-        <Input
+        {/* <Input
           for="language"
           name="language"
           id="language"
@@ -96,9 +98,21 @@ export default function GeneralFields(props) {
           text="Language"
           value={props.formData.language}
           handleChange={props.handleChange}
-        />
+        /> */}
+        <select
+          name="language"
+          onChange={props.handleChange}
+          class="px-3 py-3  w-full mt-1.5 rounded-lg border-gray-300 text-gray-700 sm:text-sm"
+        >
+          <option selected disabled>
+            select a language
+          </option>
+          {LANGS.map((lang) => (
+            <option value={lang}>{lang}</option>
+          ))}
+        </select>
       </div>
-      <div className="flex flex-col mx-auto">
+      <div className="flex flex-col mx-auto w-1/4">
         <Input
           for="frequency"
           name="frequency"

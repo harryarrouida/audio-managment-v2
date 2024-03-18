@@ -23,7 +23,7 @@ const TYPES = ["Music", "Quran", "News", "Emission", "Causerie", "Fiction"];
 
 export default function Form() {
   const [formData, setFormData] = useState({});
-  const [status, setStatus] = useState("")
+  const [status, setStatus] = useState(null)
 
   const [createAudio] = useMutation(CREATE_AUDIO);
 
@@ -62,6 +62,10 @@ export default function Form() {
       console.log("failed", error);
       setStatus("failed")
     }
+
+    setTimeout(() => {
+      setStatus(null)
+    }, 3000);
   };
   return (
     <form onSubmit={handleSubmit}>
