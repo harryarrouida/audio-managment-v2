@@ -14,6 +14,37 @@ const resolvers = {
         throw new Error("Failed to fetch audios");
       }
     },
+    audio: async (_, args) => {
+      const { _id } = args;
+      try {
+        const audio = await Audio.findById(_id);
+        if (!audio) {
+          throw new Error("audio is not found");
+        }
+        return {
+          ...audio._doc,
+          _id: audio._id.toString(),
+        };
+      } catch (error) {
+        console.log("Error fetching the audio: ", error);
+      }
+    },
+    audioByTitle: async (_, args) => {
+      const { title } = args;
+      try {
+        const audios = await Audio.find({ title: { $regex: title, $options: 'i' } });
+        if (!audios) {
+          console.log("audio not found");
+          throw new Error("audio not found");
+        }
+        return audios.map((audio) => ({
+          ...audio._doc,
+          _id: audio._id.toString(),
+        }));
+      } catch (error) {
+        console.log("error fetching the audio by name:", error);
+      }
+    },    
   },
   Mutation: {
     createAudio: async (_, { audioInput }) => {
@@ -57,7 +88,7 @@ const resolvers = {
         fiction_writer,
         adaptation,
       } = audioInput;
-  
+
       const audio = new Audio({
         title,
         date_production,
@@ -98,7 +129,7 @@ const resolvers = {
         fiction_writer,
         adaptation,
       });
-  
+
       try {
         const result = await audio.save();
         return {
@@ -109,8 +140,8 @@ const resolvers = {
         console.log("Error saving audio:", error);
         throw new Error("Failed to save audio");
       }
-    }
-  }
+    },
+  },
 };
 
 module.exports = resolvers;

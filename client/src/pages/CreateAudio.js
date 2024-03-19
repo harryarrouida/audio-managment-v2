@@ -1,6 +1,6 @@
 import React from "react";
 import Form from "../components/Form";
-import { SideMenu } from "../customComponents/SideMenu";
+import { SideMenu } from "../components/customizedComponents/SideMenu";
 
 export default function CreateAudio() {
   return (

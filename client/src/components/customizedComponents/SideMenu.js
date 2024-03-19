@@ -3,9 +3,6 @@ import {
   Typography,
   List,
   ListItem,
-  ListItemPrefix,
-  ListItemSuffix,
-  Chip,
 } from "@material-tailwind/react";
 
 import { Link } from "react-router-dom";
@@ -27,6 +24,9 @@ export function SideMenu() {
         </ListItem>
         <ListItem>
           <Link to={"/fetch-audios"}>Fetch Audios</Link>
+        </ListItem>
+        <ListItem>
+          <Link to={"/fetch-byTitle"}>Fetch By Title</Link>
         </ListItem>
       </List>
     </Card>

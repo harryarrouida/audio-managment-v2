@@ -1,6 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { SideMenu } from "../customComponents/SideMenu";
+import { SideMenu } from "../components/customizedComponents/SideMenu";
 
 export default function Home() {
   return (

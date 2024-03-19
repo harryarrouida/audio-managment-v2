@@ -1,6 +1,6 @@
 import React from "react";
 import FetchAudiosComponent from "../components/fetchComponents/FetchAudiosComponent";
-import { SideMenu } from "../customComponents/SideMenu";
+import { SideMenu } from "../components/customizedComponents/SideMenu";
 
 export default function FetchAudios() {
   return (

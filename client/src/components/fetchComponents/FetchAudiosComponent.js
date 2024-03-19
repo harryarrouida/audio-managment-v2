@@ -1,5 +1,6 @@
 import React from "react";
 import { gql, useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 const FETCH_AUDIOS = gql`
   query {
@@ -77,7 +78,9 @@ export default function FetchAudiosComponent() {
               {data.audios.map((audio) => (
                 <tr key={audio._id}>
                   <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
-                    {audio.title}
+                    <Link to={`/fetch-audios/details/${audio._id}`}>
+                      {audio.title}
+                    </Link>
                   </td>
                   <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
                     {audio.type}
