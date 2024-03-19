@@ -2,9 +2,10 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Query {
-    audios: [Audio!]!
+    audios: [Audio!]
     audio(_id: ID!): Audio 
     audioByTitle(title: String!): [Audio]
+    feedAudios(offset: Int!, limit: Int!): [Audio]
   }
 
   type Audio {

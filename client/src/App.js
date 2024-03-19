@@ -4,6 +4,7 @@ import CreateAudio from "./pages/CreateAudio";
 import FetchAudios from "./pages/FetchAudios";
 import AudioDetails from "./pages/AudioDetails";
 import FetchByTitle from "./pages/FetchByTitle";
+import PaginationAttempt from "./pages/PaginationAttempt";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/fetch-audios" Component={FetchAudios} />
         <Route path="/fetch-audios/details/:_id" Component={AudioDetails} />
         <Route path="/fetch-byTitle" Component={FetchByTitle} />
+        <Route path="/pagination" Component={PaginationAttempt} />
       </Routes>
     </div>
   );
