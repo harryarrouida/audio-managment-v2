@@ -6,7 +6,7 @@ export default function FetchByTitle() {
   return (
     <div className="flex flex-between h-screen">
       <SideMenu/>
-      <div className='w-full'>
+      <div  className="w-3/5 ml-96">
         <FetchByTitleComponent/>
       </div>
     </div>

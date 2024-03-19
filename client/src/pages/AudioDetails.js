@@ -8,8 +8,8 @@ export default function AudioDetails() {
   console.log(_id);
   return (
     <div className="flex flex-between h-screen">
-      <SideMenu />
-      <div className="w-3/5 mx-auto my-20">
+      <SideMenu/>
+      <div className="w-3/5 ml-96 my-20">
         <AudioDetailsComponent audioId={_id} />
       </div>
     </div>

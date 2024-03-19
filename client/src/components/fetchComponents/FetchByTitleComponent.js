@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { gql, useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 
@@ -12,10 +12,14 @@ const FETCH_BY_NAME = gql`
 `;
 
 export default function FetchByTitleComponent() {
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState(null);
   const { data, loading, error, refetch} = useQuery(FETCH_BY_NAME, {
     variables: { title },
   });
+
+  useEffect(() => {
+    refetch()
+  }, [title])
 
   return (
     <div className="relative w-4/5 mx-auto my-20">
@@ -34,7 +38,7 @@ export default function FetchByTitleComponent() {
       </form>
       <div className="my-20">
         {loading ? <div>Loading...</div> : <></>}
-        {error ? <div>Error: {error.message}</div> : <></>}
+        {/* {error ? <div>Error: {error.message}</div> : <></>} */}
         {data &&
           data.audioByTitle.map((audio) => (
             <li key={audio._id} className="my-5">
