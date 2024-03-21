@@ -1,8 +1,14 @@
 import React from "react";
-import Form from "../components/Form";
-import { SideMenu } from "../components/customizedComponents/SideMenu";
+import Form from "../../components/Form";
+import { SideMenu } from "../../components/customizedComponents/SideMenu";
+
 
 export default function CreateAudio() {
+  const token = localStorage.getItem("adminToken")
+  if(!token){
+    window.location.href = "/admin/login"
+    return null
+  }
   return (
     <div className="flex flex-between h-screen">
       <SideMenu />

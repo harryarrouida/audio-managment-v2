@@ -15,7 +15,7 @@ app.use(cors())
 app.use(bodyParser.json())
 
 // admin login route 
-const adminRoute = require("./auth/adminLogin")
+const adminRoute = require("./routes/adminRoute")
 app.use("/admin", adminRoute)
 
 const server = new ApolloServer({typeDefs, resolvers, debug:true})
