@@ -32,7 +32,9 @@ const resolvers = {
     audioByTitle: async (_, args) => {
       const { title } = args;
       try {
-        const audios = await Audio.find({ title: { $regex: title, $options: 'i' } });
+        const audios = await Audio.find({
+          title: { $regex: title, $options: "i" },
+        });
         if (!audios) {
           console.log("audio not found");
           throw new Error("audio not found");
@@ -44,7 +46,18 @@ const resolvers = {
       } catch (error) {
         console.log("error fetching the audio by name:", error);
       }
-    },    
+    },
+    feedAudios: async (_, { offset, limit }) => {
+      try {
+        const audios = await Audio.find().skip(offset).limit(limit);
+        return audios.map((audio) => ({
+          ...audio._doc,
+          _id: audio._id.toString(),
+        }));
+      } catch (error) {
+        console.log("error paginate the audios");
+      }
+    },
   },
   Mutation: {
     createAudio: async (_, { audioInput }) => {

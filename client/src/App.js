@@ -1,9 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import CreateAudio from "./pages/CreateAudio";
-import FetchAudios from "./pages/FetchAudios";
-import AudioDetails from "./pages/AudioDetails";
-import FetchByTitle from "./pages/FetchByTitle";
+import CreateAudio from "./pages/audio/CreateAudio";
+import FetchAudios from "./pages/audio/FetchAudios";
+import AudioDetails from "./pages/audio/AudioDetails";
+import FetchByTitle from "./pages/audio/FetchByTitle";
+import PaginationAttempt from "./pages/PaginationAttempt";
+import AdminLogin from "./pages/auth/AdminLogin";
 
 function App() {
   return (
@@ -14,6 +16,10 @@ function App() {
         <Route path="/fetch-audios" Component={FetchAudios} />
         <Route path="/fetch-audios/details/:_id" Component={AudioDetails} />
         <Route path="/fetch-byTitle" Component={FetchByTitle} />
+        <Route path="/pagination" Component={PaginationAttempt} />
+
+        {/* auth */}
+        <Route path="/admin/login" Component={AdminLogin}></Route>
       </Routes>
     </div>
   );

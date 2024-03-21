@@ -3,6 +3,7 @@ const mongoose = require("mongoose")
 const {ApolloServer} = require("apollo-server-express")
 const bodyParser = require("body-parser")
 const cors = require("cors")
+require("dotenv").config()
 
 const app = express()
 const port = 4000 
@@ -12,6 +13,10 @@ const resolvers = require("./graphql/resolvers")
 
 app.use(cors())
 app.use(bodyParser.json())
+
+// admin login route 
+const adminRoute = require("./routes/adminRoute")
+app.use("/admin", adminRoute)
 
 const server = new ApolloServer({typeDefs, resolvers, debug:true})
 
