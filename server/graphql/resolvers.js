@@ -154,6 +154,17 @@ const resolvers = {
         throw new Error("Failed to save audio");
       }
     },
+    deleteAudio: async (_, { _id }) => {
+      try {
+        const result = await Audio.findByIdAndDelete(_id);
+        return {
+          ...result._doc,
+          _id: result._id.toString(),
+        };
+      } catch (error) {
+        console.log("failed to delete the audio");
+      }
+    },
   },
 };
 

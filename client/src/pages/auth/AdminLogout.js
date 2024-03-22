@@ -7,8 +7,9 @@ export default function AdminLogout() {
   };
   return (
     <div className="text-center">
+    <div className="header">logout</div>
       <button
-        className="bg-red-500 text-white py-3 px-5 mx-auto my-10 rounded-lg"
+        className="bg-red-500 text-white py-3 px-5 mx-auto my-10 rounded-lg uppercase"
         onClick={logout}
       >
         Logout

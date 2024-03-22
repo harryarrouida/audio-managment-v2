@@ -1,5 +1,5 @@
 import React from "react";
-import { gql, useQuery } from "@apollo/client";
+import { gql, useQuery, useMutation } from "@apollo/client";
 import NewsDetails from "./dynamicDetails/NewsDetails";
 import EmissionDetails from "./dynamicDetails/EmissionDetails";
 import CauserieDetails from "./dynamicDetails/CauserieDetails";
@@ -7,7 +7,7 @@ import QuranDetails from "./dynamicDetails/QuranDetails";
 import MusicDetails from "./dynamicDetails/MusicDetails";
 import FictionDetails from "./dynamicDetails/FictionDetails";
 
-import "../../componentsStyles/audioDetailsStyles.css"
+import "../../componentsStyles/audioDetailsStyles.css";
 
 const FETCH_AUDIO = gql`
   query fetchAudio($input: ID!) {
@@ -54,17 +54,34 @@ const FETCH_AUDIO = gql`
     }
   }
 `;
+const DELETE_AUDIO = gql`
+  mutation DeleteAudio($id: ID!){
+    deleteAudio(_id: $id){
+      _id 
+      title
+    }
+  }
+`
+
 
 export default function AudioDetailsComponent(props) {
   const id = props.audioId._id;
   const { data, loading, error } = useQuery(FETCH_AUDIO, {
     variables: { input: id },
   });
+  const [deleteAudio] = useMutation(DELETE_AUDIO, {variables: {id}})
   console.log("id is ", id);
   if (loading) return <div>loading...</div>;
   if (error) return <div>error happened: {error.message}</div>;
 
   const audio = data.audio;
+
+  const handleDelete = async () => {
+    if(window.confirm()){
+      await deleteAudio()
+      return window.location.href = "/fetch-audios"
+    }
+  }
 
   return (
     <div>
@@ -101,6 +118,12 @@ export default function AudioDetailsComponent(props) {
             return null;
         }
       })}
+      <button
+        className="bg-red-500 text-white py-3 px-5 mx-auto my-10 rounded-lg uppercase"
+        onClick={handleDelete}
+      >
+        delete
+      </button>
     </div>
   );
 }

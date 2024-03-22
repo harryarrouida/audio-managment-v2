@@ -23,30 +23,39 @@ const TYPES = ["Music", "Quran", "News", "Emission", "Causerie", "Fiction"];
 
 export default function Form() {
   const [formData, setFormData] = useState({});
-  const [status, setStatus] = useState(null)
+  const [status, setStatus] = useState(null);
 
   const [createAudio] = useMutation(CREATE_AUDIO);
 
   const handleCSVFieldChange = (name, value) => {
-    const updatedValue = value.split(',').map(item => item.trim());
-    setFormData(prevState => ({
+    const updatedValue = value.split(",").map((item) => item.trim());
+    setFormData((prevState) => ({
       ...prevState,
       [name]: updatedValue,
     }));
-    console.log(formData)
+    console.log(formData);
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (["productors", "presenter", "preparation", "singer", "author", "actor"].includes(name)) {
+    if (
+      [
+        "productors",
+        "presenter",
+        "preparation",
+        "singer",
+        "author",
+        "actor",
+      ].includes(name)
+    ) {
       handleCSVFieldChange(name, value);
     } else {
-      setFormData(prevState => ({
+      setFormData((prevState) => ({
         ...prevState,
         [name]: value,
       }));
     }
-    console.log(formData)
+    console.log(formData);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,14 +66,14 @@ export default function Form() {
         },
       });
       console.log("successful", result);
-      setStatus("success")
+      setStatus("success");
     } catch (error) {
       console.log("failed", error);
-      setStatus("failed")
+      setStatus("failed");
     }
 
     setTimeout(() => {
-      setStatus(null)
+      setStatus(null);
     }, 3000);
   };
   return (
@@ -118,18 +127,14 @@ export default function Form() {
       )}
       <div className="mx-auto text-center">
         <button
-          class="my-5 group relative inline-block text-sm font-medium text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+          className="bg-violet-500 text-white py-3 px-5 mx-auto my-10 rounded-lg uppercase"
           type="submit"
         >
-          <span class="absolute inset-0 translate-x-0 translate-y-0 bg-indigo-600 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5"></span>
-
-          <span class="relative block border border-current bg-white px-8 py-3">
-            submit
-          </span>
+          submit
         </button>
       </div>
-      {status === "success" ? <Success/> : <></>}
-      {status === "failed" ? <Error/> : <></>}
+      {status === "success" ? <Success /> : <></>}
+      {status === "failed" ? <Error /> : <></>}
     </form>
   );
 }

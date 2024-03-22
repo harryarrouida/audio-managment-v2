@@ -4,7 +4,39 @@
   box-sizing: border-box;
 }
 
-input {
-  margin-top: 10px;
-  margin-bottom: 10px;
+/* Custom CSS */
+
+/* Header */
+.header {
+  text-transform: uppercase;
+  color: #8a14ff; /* Violet-700 */
+  margin: 30px auto;
+  text-align: center;
+  font-size: 30px;
+}
+
+/* Buttons */
+.btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 10px 0px;
+  cursor: pointer;
+  color: white;
+  border-radius: 1rem;
+  text-transform: uppercase;
+  background-color: #8000ff;
+}
+
+/* Danger Button */
+.btn-danger {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 10px 0px;
+  cursor: pointer;
+  color: white;
+  border-radius: 1rem;
+  text-transform: uppercase;
+  background-color: #b10909;
 }

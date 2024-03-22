@@ -70,6 +70,7 @@ const typeDefs = gql`
 
   type Mutation {
     createAudio(audioInput: AudioInput!): Audio!
+    deleteAudio(_id: ID!): Audio
   }
 
   input AudioInput {
