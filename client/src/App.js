@@ -8,8 +8,7 @@ import PaginationAttempt from "./pages/PaginationAttempt";
 import AdminLogin from "./pages/auth/AdminLogin";
 import AdminLogout from "./pages/auth/AdminLogout";
 
-import "./style.css"
-
+import "./app.css";
 function App() {
   return (
     <div className="App">
