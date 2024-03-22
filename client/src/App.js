@@ -9,6 +9,7 @@ import AdminLogin from "./pages/auth/AdminLogin";
 import AdminLogout from "./pages/auth/AdminLogout";
 
 import "./app.css";
+import "./myStyle.css"
 function App() {
   return (
     <div className="App">

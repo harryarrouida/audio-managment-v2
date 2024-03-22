@@ -3,7 +3,7 @@ import Input from '../customizedComponents/Input';
 
 export default function QuranFields(props) {
   return (
-    <div className='w-3/5 mx-auto flex flex-col'>
+    <div className='w-3/5 mx-auto flex flex-col text-center'>
       <Input
         for='quranReciter'
         id='quranReciter'

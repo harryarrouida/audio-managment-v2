@@ -102,7 +102,8 @@ export default function GeneralFields(props) {
         <select
           name="language"
           onChange={props.handleChange}
-          class="px-3 py-3  w-full mt-1.5 rounded-lg border-gray-300 text-gray-700 sm:text-sm"
+          className="select select-bordered focus:outline-none max-w-xs w-full"
+          // class="px-3 py-3  w-full mt-1.5 rounded-lg border-gray-300 text-gray-700 sm:text-sm"
         >
           <option selected disabled>
             select a language

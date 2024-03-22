@@ -23,7 +23,7 @@ export default function FetchByTitleComponent() {
 
   return (
     <div className="relative w-4/5 mx-auto my-20">
-      <form>
+      <form className="text-center"> 
         <label htmlFor="Search" className="sr-only">
           Title
         </label>
@@ -31,7 +31,8 @@ export default function FetchByTitleComponent() {
           type="text"
           id="Search"
           placeholder="Search for..."
-          className="w-full rounded-md border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm p-3"
+          className="input input-bordered focus:outline-none w-2/3"
+          // className="w-full rounded-md border-gray-200 py-2.5 pe-10 shadow-sm sm:text-sm p-3"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />

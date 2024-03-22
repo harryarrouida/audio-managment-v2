@@ -83,8 +83,7 @@ export default function Form() {
         <select
           name="type"
           onChange={handleChange}
-          id="HeadlineAct"
-          class="w-3/5 mx-auto px-3 py-3 mt-1.5 rounded-lg border-gray-300 text-gray-700 sm:text-sm"
+          class="select select-bordered focus:outline-none text-slate-900"
         >
           <option selected disabled>
             select a type
@@ -127,7 +126,7 @@ export default function Form() {
       )}
       <div className="mx-auto text-center">
         <button
-        className="btn"
+        className="btn btn-secondary"
           // className="bg-violet-500 text-white py-3 px-5 mx-auto my-10 rounded-lg uppercase"
           type="submit"
         >

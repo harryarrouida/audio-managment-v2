@@ -2,14 +2,21 @@ import React from "react";
 
 export default function Success() {
   return (
-    <div role="alert" class="w-3/5 rounded border-s-4 border-green-500 bg-green-50 p-4" style={{position: "fixed", bottom: "50px", left: "100px"}}>
-      <div class="flex items-center gap-2 text-green-800">
-      <img src="/assets/yes.png"></img>
-
-        <strong class="block font-medium">Success</strong>
-      </div>
-
-      <p class="mt-2 text-sm text-green-700">Audio Created Successfully</p>
+    <div role="alert" class="alert alert-success w-3/4" style={{position: "fixed", bottom: "50px", left: "100px"}}>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="stroke-current shrink-0 h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+        />
+      </svg>
+      <span>Success: Audio Created Successfully</span>
     </div>
   );
 }
