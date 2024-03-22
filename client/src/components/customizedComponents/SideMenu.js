@@ -32,6 +32,9 @@ export function SideMenu() {
         <ListItem>
           <Link to={"/fetch-byTitle"}>Fetch By Title</Link>
         </ListItem>
+        <ListItem>
+          <Link to={"/admin/logout"}>Logout</Link>
+        </ListItem>
       </List>
     </Card>
   );

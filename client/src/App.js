@@ -6,6 +6,7 @@ import AudioDetails from "./pages/audio/AudioDetails";
 import FetchByTitle from "./pages/audio/FetchByTitle";
 import PaginationAttempt from "./pages/PaginationAttempt";
 import AdminLogin from "./pages/auth/AdminLogin";
+import AdminLogout from "./pages/auth/AdminLogout";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
 
         {/* auth */}
         <Route path="/admin/login" Component={AdminLogin}></Route>
+        <Route path="/admin/logout" Component={AdminLogout}></Route>
       </Routes>
     </div>
   );
