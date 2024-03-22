@@ -14,9 +14,13 @@ const resolvers = require("./graphql/resolvers")
 app.use(cors())
 app.use(bodyParser.json())
 
-// admin login route 
+// admin auth route
 const adminRoute = require("./routes/adminRoute")
 app.use("/admin", adminRoute)
+
+// user auth route
+const userRoute = require("./routes/userRoute")
+app.use("/user", userRoute)
 
 const server = new ApolloServer({typeDefs, resolvers, debug:true})
 

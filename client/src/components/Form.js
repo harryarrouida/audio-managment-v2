@@ -133,8 +133,8 @@ export default function Form() {
           submit
         </button>
       </div>
-      {status === "success" ? <Success /> : <></>}
-      {status === "failed" ? <Error /> : <></>}
+      {status === "success" ? <Success message={"Audio Created Successfully"}/> : <></>}
+      {status === "failed" ? <Error message={"Failed To Create Audio"}/> : <></>}
     </form>
   );
 }

@@ -8,7 +8,7 @@ const AdminLogin = () => {
     username: "",
     password: "",
   });
-  const [status, setStatus] = useState("")
+  const [status, setStatus] = useState(null);
 
   const { username, password } = formData;
 
@@ -23,13 +23,15 @@ const AdminLogin = () => {
         username,
         password,
       });
+      setStatus(true);
       const { token } = response.data.token;
       localStorage.setItem("adminToken", token);
-      window.location.href = "/";
-      setStatus(true)
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 4000);
     } catch (err) {
       console.log("Invalid credentials. Please try again.");
-      setStatus(false)
+      setStatus(false);
     }
   };
 
@@ -90,9 +92,8 @@ const AdminLogin = () => {
           Login
         </button>
       </form>
-      {
-        status ? <Success/> : <Error/> 
-      }
+      {status === true ? <Success message="Logged In Successfully" /> : <></>}
+      {status === false ? <Error message="Try again" /> : <></>}
     </div>
   );
 };
