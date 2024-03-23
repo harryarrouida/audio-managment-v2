@@ -12,7 +12,7 @@ export default function FetchByTitle() {
     <div className="flex flex-between h-screen">
       <SideMenu />
       <div className="w-3/5 ml-96">
-      <div className="header">fetch an audio with title</div>
+      <div className="title">fetch an audio with title</div>
         <FetchByTitleComponent />
       </div>
     </div>

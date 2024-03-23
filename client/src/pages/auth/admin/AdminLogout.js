@@ -1,5 +1,5 @@
 import React from "react";
-import { SideMenu } from "../../components/customizedComponents/SideMenu";
+import { SideMenu } from "../../../components/customizedComponents/SideMenu";
 
 export default function AdminLogout() {
   const logout = () => {
@@ -10,11 +10,8 @@ export default function AdminLogout() {
     <div className="text-center">
       <SideMenu />
       <div>
-        <div className="header">logout</div>
-        <button
-          className="btn btn-error uppercase"
-          onClick={logout}
-        >
+        <div className="title">logout</div>
+        <button className="btn btn-error uppercase" onClick={logout}>
           Logout
         </button>
       </div>

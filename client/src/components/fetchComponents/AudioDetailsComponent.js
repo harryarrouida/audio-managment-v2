@@ -7,7 +7,7 @@ import QuranDetails from "./dynamicDetails/QuranDetails";
 import MusicDetails from "./dynamicDetails/MusicDetails";
 import FictionDetails from "./dynamicDetails/FictionDetails";
 
-import "../../componentsStyles/audioDetailsStyles.css";
+// import "../../componentsStyles/audioDetailsStyles.css";
 
 const FETCH_AUDIO = gql`
   query fetchAudio($input: ID!) {

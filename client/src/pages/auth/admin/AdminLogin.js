@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Success from "../../components/customizedComponents/Success";
-import Error from "../../components/customizedComponents/Error";
+import Success from "../../../components/customizedComponents/Success";
+import Error from "../../../components/customizedComponents/Error";
 
 const AdminLogin = () => {
   const [formData, setFormData] = useState({
@@ -27,11 +27,11 @@ const AdminLogin = () => {
       const { token } = response.data.token;
       localStorage.setItem("adminToken", token);
       setTimeout(() => {
-        window.location.href = "/";
+        window.location.href = "/admin/dashboard";
       }, 4000);
     } catch (err) {
-      console.log("Invalid credentials. Please try again.");
       setStatus(false);
+      console.log("Invalid credentials. Please try again.");
     }
   };
 

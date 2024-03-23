@@ -12,7 +12,7 @@ export default function FetchAudios() {
     <div className="flex flex-between h-screen">
       <SideMenu />
       <div className="w-3/5 ml-96">
-        <div className="header">Fetch Audios</div>
+        <div className="title">Fetch Audios</div>
         <FetchAudiosComponent />
       </div>
     </div>

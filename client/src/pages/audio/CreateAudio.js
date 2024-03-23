@@ -13,7 +13,7 @@ export default function CreateAudio() {
     <div className="flex flex-between h-screen">
       <SideMenu />
       <div className="w-3/5 ml-96">
-        <div className="header">
+        <div className="title">
           Create An Audio
         </div>
         <Form />

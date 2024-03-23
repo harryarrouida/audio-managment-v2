@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    /* buttons */
+  .btn-blue {
+    @apply uppercase my-3 py-3 px-6 bg-blue-500 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 focus:outline-none;
+  }
+  .btn-slate {
+    @apply uppercase m-5 py-3 px-6 bg-slate-500 text-white font-semibold rounded-xl shadow-md hover:bg-slate-700 focus:outline-none;
+  }
+  .btn-red {
+    @apply uppercase m-5 py-3 px-6 bg-red-500 text-white font-semibold rounded-xl shadow-md hover:bg-red-700 focus:outline-none;
+  }
+  .btn-amber {
+    @apply uppercase m-5 py-3 px-6 bg-amber-500 text-white font-semibold rounded-xl shadow-md hover:bg-amber-700 focus:outline-none;
+  }
+  .btn-green {
+    @apply uppercase m-5 py-3 px-6 bg-green-500 text-white font-semibold rounded-xl shadow-md hover:bg-green-700 focus:outline-none;
+  }
+
+  .btn-cyan {
+    @apply uppercase m-5 py-3 px-6 bg-cyan-500 text-white font-semibold rounded-xl shadow-md hover:bg-cyan-700 focus:outline-none;
+  }
+  .btn-indigo {
+    @apply uppercase m-5 py-3 px-6 bg-indigo-500 text-white font-semibold rounded-xl shadow-md hover:bg-indigo-700 focus:outline-none;
+  }
+  .btn-violet {
+    @apply uppercase m-5 py-3 px-6 bg-violet-500 text-white font-semibold rounded-xl shadow-md hover:bg-violet-700 focus:outline-none;
+  }
+  .btn-pink {
+    @apply uppercase m-5 py-3 px-6 bg-pink-500 text-white font-semibold rounded-xl shadow-md hover:bg-pink-700 focus:outline-none;
+  }
+
+  /* form stuff */
+  .form {
+    @apply shadow-md my-10 mx-auto flex flex-col rounded-lg border-2 border-slate-300 py-6 px-4 w-1/4 gap-5
+  }
+  .input{
+    @apply w-full border-2 border-slate-200 mx-auto rounded-lg focus:outline-none px-3 py-2
+  }
+
+  /* text */
+  .title{
+    @apply text-4xl my-10 text-center uppercase
+  }
+  .subtitle{
+    @apply text-lg mb-3 text-slate-400 text-center
+  }
+
+  /* container */
+  .container-center{
+    @apply text-center
+  }
+  .container-col{
+    @apply flex flex-col
+  }
+}

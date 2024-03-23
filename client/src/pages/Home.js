@@ -1,13 +1,15 @@
 import React from "react";
-import { SideMenu } from "../components/customizedComponents/SideMenu";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <div className="flex flex-between">
-      <SideMenu />
-      <div className="my-10 mx-auto">
-      to be changed later
-      </div>
+    <div className="container-center">
+      <Link to={"/user/login"}>
+        <button className="btn-blue">login</button>
+      </Link>
+      <Link to={"/user/register"}>
+        <button className="btn-blue">register</button>
+      </Link>
     </div>
   );
 }
