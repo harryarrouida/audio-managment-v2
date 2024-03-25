@@ -21,7 +21,7 @@ export function SideMenu() {
       </div>
       <List>
       <ListItem>
-          <Link to={"/"}>Home</Link>
+          <Link to={"/admin/dashboard"}>Home</Link>
         </ListItem>
         <ListItem>
           <Link to={"/create-audio"}>Create Audio</Link>

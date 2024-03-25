@@ -8,29 +8,29 @@
     @apply uppercase my-3 py-3 px-6 bg-blue-500 text-white font-semibold rounded-xl shadow-md hover:bg-blue-700 focus:outline-none;
   }
   .btn-slate {
-    @apply uppercase m-5 py-3 px-6 bg-slate-500 text-white font-semibold rounded-xl shadow-md hover:bg-slate-700 focus:outline-none;
+    @apply uppercase my-5 py-3 px-6 bg-slate-500 text-white font-semibold rounded-xl shadow-md hover:bg-slate-700 focus:outline-none
   }
   .btn-red {
-    @apply uppercase m-5 py-3 px-6 bg-red-500 text-white font-semibold rounded-xl shadow-md hover:bg-red-700 focus:outline-none;
+    @apply uppercase my-5 py-3 px-6 bg-red-500 text-white font-semibold rounded-xl shadow-md hover:bg-red-700 focus:outline-none
   }
   .btn-amber {
-    @apply uppercase m-5 py-3 px-6 bg-amber-500 text-white font-semibold rounded-xl shadow-md hover:bg-amber-700 focus:outline-none;
+    @apply uppercase my-5 py-3 px-6 bg-amber-500 text-white font-semibold rounded-xl shadow-md hover:bg-amber-700 focus:outline-none
   }
   .btn-green {
-    @apply uppercase m-5 py-3 px-6 bg-green-500 text-white font-semibold rounded-xl shadow-md hover:bg-green-700 focus:outline-none;
+    @apply uppercase my-5 py-3 px-6 bg-green-500 text-white font-semibold rounded-xl shadow-md hover:bg-green-700 focus:outline-none
   }
 
   .btn-cyan {
-    @apply uppercase m-5 py-3 px-6 bg-cyan-500 text-white font-semibold rounded-xl shadow-md hover:bg-cyan-700 focus:outline-none;
+    @apply uppercase my-5 py-3 px-6 bg-cyan-500 text-white font-semibold rounded-xl shadow-md hover:bg-cyan-700 focus:outline-none
   }
   .btn-indigo {
-    @apply uppercase m-5 py-3 px-6 bg-indigo-500 text-white font-semibold rounded-xl shadow-md hover:bg-indigo-700 focus:outline-none;
+    @apply uppercase my-5 py-3 px-6 bg-indigo-500 text-white font-semibold rounded-xl shadow-md hover:bg-indigo-700 focus:outline-none
   }
   .btn-violet {
-    @apply uppercase m-5 py-3 px-6 bg-violet-500 text-white font-semibold rounded-xl shadow-md hover:bg-violet-700 focus:outline-none;
+    @apply uppercase my-5 py-3 px-6 bg-violet-500 text-white font-semibold rounded-xl shadow-md hover:bg-violet-700 focus:outline-none
   }
   .btn-pink {
-    @apply uppercase m-5 py-3 px-6 bg-pink-500 text-white font-semibold rounded-xl shadow-md hover:bg-pink-700 focus:outline-none;
+    @apply uppercase my-5 py-3 px-6 bg-pink-500 text-white font-semibold rounded-xl shadow-md hover:bg-pink-700 focus:outline-none
   }
 
   /* form stuff */
