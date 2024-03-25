@@ -16,7 +16,7 @@ export default function AudioDetails() {
     <div className="flex flex-between h-screen">
       <SideMenu/>
       <div className="w-3/5 ml-96 my-20">
-      <div className="header">details of an audio</div>
+      <div className="title">details of an audio</div>
         <AudioDetailsComponent audioId={_id} />
       </div>
     </div>

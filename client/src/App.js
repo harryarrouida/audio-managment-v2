@@ -14,6 +14,7 @@ import UserLogin from "./pages/auth/user/UserLogin";
 import UserRegister from "./pages/auth/user/UserRegister";
 import AdminDashboard from "./pages/auth/admin/AdminDashboard";
 import Home from "./pages/Home";
+import FetchUsers from "./pages/users/FetchUsers";
 
 function App() {
   return (
@@ -28,9 +29,10 @@ function App() {
 
         <Route path="/" Component={Home}></Route>
 
-        {/* auth */}
+        {/* admin */}
         <Route path="/admin/login" Component={AdminLogin}></Route>
         <Route path="/admin/logout" Component={AdminLogout}></Route>
+        <Route path="/admin/users" Component={FetchUsers}></Route>
         {/* user */}
         <Route path="/user/login" Component={UserLogin}></Route>
         <Route path="/user/register" Component={UserRegister}></Route>

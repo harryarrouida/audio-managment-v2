@@ -1,4 +1,5 @@
 const Audio = require("../models/Audio");
+const User = require("../models/User");
 
 const resolvers = {
   Query: {
@@ -56,6 +57,17 @@ const resolvers = {
         }));
       } catch (error) {
         console.log("error paginate the audios");
+      }
+    },
+    users: async () => {
+      try {
+        const users = await User.find();
+        return users.map((user) => ({
+          ...user._doc,
+          _id: user._id.toString(),
+        }));
+      } catch (error) {
+        console.log("error fetching users");
       }
     },
   },

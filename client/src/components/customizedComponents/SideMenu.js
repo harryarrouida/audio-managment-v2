@@ -33,6 +33,9 @@ export function SideMenu() {
           <Link to={"/fetch-byTitle"}>Fetch By Title</Link>
         </ListItem>
         <ListItem>
+          <Link to={"/admin/users"}>Fetch Users</Link>
+        </ListItem>
+        <ListItem>
           <Link to={"/admin/logout"}>Logout</Link>
         </ListItem>
       </List>

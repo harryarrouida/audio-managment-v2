@@ -6,6 +6,7 @@ const typeDefs = gql`
     audio(_id: ID!): Audio 
     audioByTitle(title: String!): [Audio]
     feedAudios(offset: Int!, limit: Int!): [Audio]
+    users: [User!]
   }
 
   type Audio {
@@ -113,6 +114,14 @@ const typeDefs = gql`
     fiction_writer: String
     adaptation: String
   }
+
+  # users 
+  type User {
+    _id: ID! 
+    username: String!
+    password: String!
+  }
+
 `;
 
 module.exports = typeDefs;
