@@ -3,7 +3,7 @@ import axios from "axios";
 import Success from "../../../components/customizedComponents/Success";
 import Error from "../../../components/customizedComponents/Error";
 import AuthForm from "../../../components/customizedComponents/AuthForm";
-import { hasDirectives } from "@apollo/client/utilities";
+
 
 const UserLogin = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +41,7 @@ const UserLogin = () => {
   };
 
   return (
-    <div className="text-center mx-auto my-20 flex flex-col">
+    <div className="text-center mx-auto mt-10 flex flex-col">
       <AuthForm
         formData={formData}
         handleChange={handleChange}

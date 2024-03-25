@@ -40,7 +40,7 @@ const UserRegister = () => {
   };
 
   return (
-    <div className="text-center mx-auto my-20 flex flex-col">
+    <div className="text-center mx-auto mt-10 flex flex-col">
       <AuthForm
         formData={formData}
         handleChange={handleChange}
