@@ -10,6 +10,7 @@ const AdminLogin = () => {
     password: "",
   });
   const [status, setStatus] = useState(null);
+  const [message, setMessage] = useState()
 
   const { username, password } = formData;
 
@@ -25,6 +26,7 @@ const AdminLogin = () => {
         password,
       });
       setStatus(true);
+      setMessage(response.data.message)
       const { token } = response.data.token;
       localStorage.setItem("adminToken", token);
       setTimeout(() => {
@@ -32,6 +34,7 @@ const AdminLogin = () => {
       }, 4000);
     } catch (err) {
       setStatus(false);
+      setMessage(err.response.data.message)
       console.log("Invalid credentials. Please try again.");
     }
   };
@@ -47,8 +50,8 @@ const AdminLogin = () => {
         toPath={""}
         message="Admin Accounts Are Provided By The Company"
       />
-      {status === true ? <Success message="Logged In Successfully" /> : <></>}
-      {status === false ? <Error message="Try again" /> : <></>}
+      {status === true ? <Success message={message} /> : <></>}
+      {status === false ? <Error message={message} /> : <></>}
     </div>
   );
 };

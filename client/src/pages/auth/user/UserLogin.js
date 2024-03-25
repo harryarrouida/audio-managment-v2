@@ -11,6 +11,7 @@ const UserLogin = () => {
     password: "",
   });
   const [status, setStatus] = useState(null);
+  const [message, setMessage] = useState()
 
   const { username, password } = formData;
 
@@ -26,6 +27,7 @@ const UserLogin = () => {
         password,
       });
       setStatus(true);
+      setMessage(response.data.message)
       const { token } = response.data.token;
       localStorage.setItem("userToken", token);
       setTimeout(() => {
@@ -33,6 +35,7 @@ const UserLogin = () => {
       }, 4000);
     } catch (err) {
       setStatus(false);
+      setMessage(err.response.data.message)
       console.log("Invalid credentials. Please try again.");
     }
   };
@@ -48,8 +51,8 @@ const UserLogin = () => {
         toPath={"/user/register"}
         message="Don't Have An Account ? Register Now"
       />
-      {status === true ? <Success message="Logged In Successfully" /> : <></>}
-      {status === false ? <Error message="Try again" /> : <></>}
+      {status === true ? <Success message={message} /> : <></>}
+      {status === false ? <Error message={message} /> : <></>}
     </div>
   );
 };
