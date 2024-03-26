@@ -1,5 +1,6 @@
 const Audio = require("../models/Audio");
 const User = require("../models/User");
+const Playlist = require("../models/Playlist")
 
 const resolvers = {
   Query: {
@@ -175,6 +176,20 @@ const resolvers = {
         };
       } catch (error) {
         console.log("failed to delete the audio");
+      }
+    },
+    createPlaylist: async (_, {name, description, userId}) => {
+      try {
+        const result = await Playlist.create({
+          name, description, userId
+        });
+        return {
+          ...result._doc,
+          _id: result._id.toString(),
+        };
+      } catch (error) {
+        console.log("Error saving playlist:", error);
+        throw new Error("Failed to save playlist");
       }
     },
   },

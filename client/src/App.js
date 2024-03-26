@@ -16,6 +16,9 @@ import AdminDashboard from "./pages/auth/admin/AdminDashboard";
 import Home from "./pages/Home";
 import FetchUsers from "./pages/users/FetchUsers";
 import UserDashboard from "./pages/auth/user/UserDashboard";
+import UserAudios from "./pages/auth/user/UserAudios";
+import CreatePlaylist from "./pages/auth/user/CreatePlaylist";
+import UserPlaylists from "./pages/auth/user/UserPlaylists";
 
 function App() {
   return (
@@ -35,9 +38,12 @@ function App() {
         <Route path="/admin/logout" Component={AdminLogout}></Route>
         <Route path="/admin/users" Component={FetchUsers}></Route>
         {/* user */}
+        <Route path="/user/dashboard" Component={UserDashboard}></Route>
         <Route path="/user/login" Component={UserLogin}></Route>
         <Route path="/user/register" Component={UserRegister}></Route>
-        <Route path="/user/dashboard" Component={UserDashboard}></Route>
+        <Route path="/user/audios" Component={UserAudios}></Route>
+        <Route path="/user/create-playlist" Component={CreatePlaylist}></Route>
+        <Route path="/user/playlists" Component={UserPlaylists}></Route>
       </Routes>
     </div>
   );

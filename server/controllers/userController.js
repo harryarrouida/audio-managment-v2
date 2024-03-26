@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
+const Playlist = require("../models/Playlist");
 
 const userLogin = async (req, res) => {
   const { username, password } = req.body;
@@ -53,4 +54,13 @@ const genToken = (_id) => {
   return jwt.sign({ _id }, process.env.JWT_SECRET, { expiresIn: "7d" });
 };
 
-module.exports = { userLogin, userRegister };
+const UserPlaylists = async (req, res) => {
+  const user = req.user;
+  if (!user) {
+    res.status(404).json({ message: "user not found" });
+  }
+  const playlists = await Playlist.findById({ userId: user._id });
+  res.json(playlists);
+};
+
+module.exports = { userLogin, userRegister, UserPlaylists };
